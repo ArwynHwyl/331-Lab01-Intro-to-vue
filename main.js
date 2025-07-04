@@ -19,12 +19,21 @@ const app = createApp({
       cart.value.push(id)
     }
 
+    function removeFromCart(id) {
+      const index = cart.value.findIndex((item) => item === id)
+
+      if (index !== -1) {
+        cart.value.splice(index, 1)
+      }
+    }
+
     return {
       cart,
       cartItemCount,
       premium,
       details,
-      updateCart
+      updateCart,
+      removeFromCart
     }
   }
 })
